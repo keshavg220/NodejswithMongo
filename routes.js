@@ -7,7 +7,9 @@ const itemSchema = Joi.object().keys({
   name: Joi.string(),
   quantity: Joi.number().integer().min(0)
 })
-
+router.get('/', (req,res) => {
+  res.sendFile(__dirname + '/public/index.html')
+})
 router.post('/item', (req, res) => {
   const item = req.body
   console.log(req.body)
