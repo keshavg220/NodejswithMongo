@@ -1,6 +1,5 @@
 const express = require('express')
 const Joi = require('@hapi/joi')
-const { db, getItems, updateQuantity } = require('./db')
 
 const router = express.Router()
 
@@ -20,41 +19,42 @@ router.post('/item', (req, res) => {
   }
   const collection = db.collection('items')
   collection.insertOne(item).then(() => {
-      res.status(200).end()
-    })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
+    res.send("Success")
+    res.status(200).end()
+  })
+  .catch((err) => {
+    console.log(err)
+    res.send(err)
+    res.status(500).end()
+  })
 })
 
 router.get('/items', (req, res) => {
-   const collection = db.collection('items')
-   collection.find({}).toArray().then((items) => {
-      items = items.map((item) => ({
-        id: item._id,
-        name: item.name,
-        quantity: item.quantity
-      }))
-      res.json(items)
-    })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
+ const collection = db.collection('items')
+ collection.find({}).toArray().then((items) => {
+  res.send(items)
+})
+ .catch((err) => {
+  console.log(err)
+  res.send(err)
+  res.status(500).end()
+})
 })
 
-router.put('/item/:id/quantity/:quantity', (req, res) => {
-  const { id, quantity } = req.params
+router.put('/item/:name/quantity/:quantity', (req, res) => {
+  const { name, quantity } = req.params
   const collection = db.collection('items')
-  collection.updateOne({ _id: ObjectId(id) }, { $inc: { parseInt(quantity) } })
-    .then(() => {
-      res.status(200).end()
-    })
-    .catch((err) => {
-      console.log(err)
-      res.status(500).end()
-    })
+  var myquery = { name: name }
+  var newValue = {$set: {quantity: quantity}}
+  collection.updateOne(myquery, newValue).then(() => {
+    res.send("updated")
+    res.status(200).end()
+  })
+  .catch((err) => {
+    console.log(err)
+    res.send(err)
+    res.status(500).end()
+  })
 })
 
 module.exports = router
