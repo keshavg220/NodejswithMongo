@@ -4,7 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="author" content="Kodinger">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>My Login Page &mdash; Bootstrap 4 Login Page Snippet</title>
+	<title>Register Page</title>
+	<meta name="google-signin-client_id" content="242526248484-fpi39hf72n7nfktqrr09rdbe93ej802v.apps.googleusercontent.com">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/my-login.css">
 </head>
@@ -18,8 +19,23 @@
 					</div>
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title">Register</h4>
-							<form method="POST" class="my-login-validation" novalidate="">
+							<h4 class="card-title registerTitle">Register</h4>
+							<div class="firstPage">
+							<div class="form-group">
+									<label for="type">Select Type</label>
+									  <select class="form-control" id="type">
+									    <option selected value="student">Student</option>
+									    <option value="buisness">Business</option>
+									    <option value="teacher">Teacher</option>
+									  </select>
+								</div>
+								<div class="form-group m-0">
+									<button type="submit"  class="btn btn-primary btn-block" onclick="openParticularForm()">
+										Next
+									</button>
+								</div>
+								</div>
+								<div class="studentForm" style="display: none;">
 								<div class="form-group">
 									<label for="name">Name</label>
 									<input id="name" type="text" class="form-control" name="name" required autofocus>
@@ -27,24 +43,63 @@
 										What's your name?
 									</div>
 								</div>
-
 								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="email" required>
+									<label>About you</label>
+									  <textarea class="form-control" rows="5" id="aboutyou"></textarea>
+								</div>
+								<div class="form-group">
+									<label>Engineering Branch</label>
+									<input id="branch"  class="form-control"  required data-eye>
+								</div>
+								<div class="form-group">
+									<label>Year of Graduation</label>
+									<input id="graduation"  class="form-control"  required data-eye>
+								</div>
+							
+								</div>
+								<div class="teachersForm" style="display: none;">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input id="teacherName" type="text" class="form-control" name="name" required autofocus>
 									<div class="invalid-feedback">
-										Your email is invalid
+										What's your name?
 									</div>
 								</div>
-
 								<div class="form-group">
-									<label for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password" required data-eye>
+									<label>About you</label>
+									  <textarea class="form-control" rows="5" id="aboutteacher"></textarea>
+								</div>
+								<div class="form-group">
+									<label>Address</label>
+									<input id="teacherAddress"  class="form-control"  required data-eye>
+								</div>
+							
+								</div>
+									<div class="buisnessForm" style="display: none;">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input id="buisnessName" type="text" class="form-control" name="name" required autofocus>
 									<div class="invalid-feedback">
-										Password is required
+										What's your name?
 									</div>
 								</div>
-
 								<div class="form-group">
+									<label>Website</label>
+									  <input class="form-control"  required data-eye id="website"></input>
+								</div>
+								<div class="form-group">
+									<label>Point of Contact name</label>
+									<input id="contactName"  class="form-control"  required data-eye>
+								</div>
+								<div class="form-group">
+									<label>Physical Address</label>
+									<input id="buisnessAddress"  class="form-control"  required data-eye>
+								</div>
+							
+								</div>
+								<div class="googleSignIn" style="display: none;">
+								
+									<div class="form-group">
 									<div class="custom-checkbox custom-control">
 										<input type="checkbox" name="agree" id="agree" class="custom-control-input" required="">
 										<label for="agree" class="custom-control-label">I agree to the <a href="#">Terms and Conditions</a></label>
@@ -53,28 +108,25 @@
 										</div>
 									</div>
 								</div>
-
-								<div class="form-group m-0">
-									<button type="submit" class="btn btn-primary btn-block">
-										Register
-									</button>
+								<div class="form-group m-0" >
+									 <div id="my-signin2"></div>
 								</div>
+							</div>
 								<div class="mt-4 text-center">
 									Already have an account? <a href="index.html">Login</a>
 								</div>
-							</form>
 						</div>
 					</div>
-					<div class="footer">
-						Copyright &copy; 2017 &mdash; Your Company 
-					</div>
+					
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/register.js"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="js/my-login.js"></script>
+
 </body>
 </html>

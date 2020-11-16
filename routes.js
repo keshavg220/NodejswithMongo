@@ -4,14 +4,15 @@ const Joi = require('@hapi/joi')
 const router = express.Router()
 
 const itemSchema = Joi.object().keys({
-  name: Joi.string(),
-  quantity: Joi.number().integer().min(0)
+  email: Joi.string(),
+  extraData: Joi.string()
 })
 router.get('/', (req,res) => {
   res.sendFile(__dirname + '/public/')
 })
 router.post('/item', (req, res) => {
   const item = req.body
+  console.log("got body")
   console.log(req.body)
   const result = itemSchema.validate(item)
   if (result.error) {
