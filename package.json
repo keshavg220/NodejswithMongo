@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    // "start": "npx kill-port 3000 && node index.js"
     "start": "npx kill-port 3000 && node index.js"
   },
-  "author": "soham kamani",
+  "author": "keshav goyal",
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
