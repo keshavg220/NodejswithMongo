@@ -65,7 +65,7 @@ router.get('/getParticularItem', (req, res) => {
    if (items.length > 0){
       res.send(items[0]) 
    } else {
-       res.send([])
+       res.send("user not found")
    }
 })
  .catch((err) => {

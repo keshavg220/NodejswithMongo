@@ -13,8 +13,8 @@ function onSignIn(googleUser) {
     return
   }
   var extraJson = {};
-  extraJson["picture"] = profile.getEmail();
-
+  extraJson["picture"] = profile.getImageUrl();
+  extraJson["type"] = $("#type").val();
   if ($("#type").val() == "student") {
     extraJson["name"] = $("#name").val();
     extraJson["aboutyou"] = $("#aboutyou").val();
@@ -43,6 +43,13 @@ function onSignIn(googleUser) {
         alert(result);
       } else {
         alert("User created successfully");
+         if (extraJson.type == "student") {
+        window.open("student.html?email="+profile.getEmail(), "_self");
+      } else if (extraJson.type == "teacher") {
+        window.open("teacher.html?email="+profile.getEmail(), "_self");
+      } if (extraJson.type == "buisness") {
+        window.open("buisness.html?email="+profile.getEmail(), "_self");
+      }
       }
 
     }
