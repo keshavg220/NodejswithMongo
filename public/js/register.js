@@ -21,7 +21,14 @@ function onSignIn(googleUser) {
     extraJson["branch"] = $("#branch").val();
     extraJson["graduation"] = $("#graduation").val();
   }  else if ($("#type").val() == "teacher") {
+    extraJson["name"] = $("#teacherName").val();
+    extraJson["aboutyou"] = $("#aboutteacher").val();
+    extraJson["teacherAddress"] = $("#teacherAddress").val();
   } else if ($("#type").val() == "buisness") {
+    extraJson["name"] = $("#buisnessName").val();
+    extraJson["website"] = $("#website").val();
+    extraJson["contactName"] = $("#contactName").val();
+    extraJson["buisnessAddress"] = $("#buisnessAddress").val();
   }
   var formData = {
     email : profile.getEmail(),

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Kodinger">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Register Page</title>
+	<meta name="google-signin-client_id" content="242526248484-fpi39hf72n7nfktqrr09rdbe93ej802v.apps.googleusercontent.com">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/my-login.css">
+</head>
+<body class="my-login-page">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-md-center h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="img/logo.jpg" alt="" id="studentImage">
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title" id="name">Teacher</h4>
+							<div>
+								<label for="type">Email: </label>
+								<label for="type" id="email">-</label>
+							</div>
+							<div>
+								<label for="type">Address: </label>
+								<label for="type" id="teacherAddress">-</label>
+							</div>
+							<div>
+								<label for="type">About you: </label>
+								<label for="type" id="aboutyou">-</label>
+							</div>
+							<div class="form-group m-0" style="margin-top: 16px">
+								<button type="submit"  class="btn btn-primary btn-block" onclick="logout()">
+									Logout
+								</button>
+							</div>
+							<div class="form-group m-0" style="display:none" >
+								<div id="my-signin2"></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/teacher.js"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
