@@ -21,21 +21,52 @@ router.post('/item', (req, res) => {
     return
   }
   const collection = db.collection('items')
-  collection.insertOne(item).then(() => {
-    res.send("Success")
-    res.status(200).end()
+  collection.find({email : req.body.email}).toArray().then((items) => {
+    if (items.length == 0){
+      collection.insertOne(item).then(() => {
+        res.send("Success")
+        res.status(200).end()
+      })
+      .catch((err) => {
+        console.log(err)
+        res.send(err)
+        res.status(500).end()
+      })
+    } else {
+      res.send("Email already exist")
+      res.status(500).end()
+    }
   })
   .catch((err) => {
     console.log(err)
     res.send(err)
     res.status(500).end()
   })
+
 })
 
 router.get('/items', (req, res) => {
  const collection = db.collection('items')
  collection.find({}).toArray().then((items) => {
   res.send(items)
+})
+ .catch((err) => {
+  console.log(err)
+  res.send(err)
+  res.status(500).end()
+})
+})
+
+
+router.get('/getParticularItem', (req, res) => {
+ const collection = db.collection('items')
+  console.log(req.query.email)
+ collection.find({email : req.query.email}).toArray().then((items) => {
+   if (items.length > 0){
+      res.send(items[0]) 
+   } else {
+       res.send([])
+   }
 })
  .catch((err) => {
   console.log(err)
