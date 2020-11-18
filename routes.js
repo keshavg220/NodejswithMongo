@@ -8,6 +8,7 @@ const itemSchema = Joi.object().keys({
   extraData: Joi.string()
 })
 router.get('/', (req,res) => {
+  console.log("aaya");
   res.sendFile(__dirname + '/public/')
 })
 router.post('/item', (req, res) => {
@@ -46,6 +47,7 @@ router.post('/item', (req, res) => {
 })
 
 router.get('/items', (req, res) => {
+    console.log("aaya2");
  const collection = db.collection('items')
  collection.find({}).toArray().then((items) => {
   res.send(items)
