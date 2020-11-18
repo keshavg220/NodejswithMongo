@@ -8,7 +8,7 @@ const dbName = 'Items'
 const init = () =>
   MongoClient.connect(connectionUrl, { useNewUrlParser: true }).then((client) => {
     db = client.db(dbName)
-    console.log("db connected")
+    console.log("db connected ")
   })
 
 module.exports = { init}
